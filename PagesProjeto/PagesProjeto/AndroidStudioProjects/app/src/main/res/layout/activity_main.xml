@@ -90,14 +90,32 @@
                 android:orientation="vertical"
                 android:paddingLeft="10sp">
 
-                <TextView
-                    android:id="@+id/chave1Titulo"
+                <LinearLayout
+                    android:id="@+id/chave1Header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Chave 1"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/chave1Titulo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Chave 1"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/setaChave1"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/arrow_forward"
+                        android:rotation="0"
+                        android:contentDescription="Seta expandir" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textoInfoChave1"
@@ -134,19 +152,37 @@
                 android:id="@+id/chave2Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:background="#2b2b2b"
                 android:orientation="vertical"
                 android:paddingLeft="10sp">
 
-                <TextView
-                    android:id="@+id/chave2Titulo"
+                <LinearLayout
+                    android:id="@+id/chave2Header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Chave 2"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/chave2Titulo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Chave 2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/setaChave2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/arrow_forward"
+                        android:rotation="0"
+                        android:contentDescription="Seta expandir" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textoInfoChave2"
@@ -183,20 +219,37 @@
                 android:id="@+id/chave3Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginTop="16dp"
                 android:background="#2b2b2b"
                 android:orientation="vertical"
                 android:paddingLeft="10sp">
 
-                <TextView
-                    android:id="@+id/chave3Titulo"
+                <LinearLayout
+                    android:id="@+id/chave3Header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Chave 3"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/chave3Titulo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Chave 3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/setaChave3"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/arrow_forward"
+                        android:rotation="0"
+                        android:contentDescription="Seta expandir" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/textoInfoChave3"
@@ -224,8 +277,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="#5c5c5c"
-                    android:layout_marginTop="2sp"
-                    />
+                    android:layout_marginTop="2sp"/>
             </LinearLayout>
 
         </LinearLayout>

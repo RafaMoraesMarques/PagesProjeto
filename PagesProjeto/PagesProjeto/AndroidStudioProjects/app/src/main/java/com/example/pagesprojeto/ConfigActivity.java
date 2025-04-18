@@ -1,5 +1,6 @@
 package com.example.pagesprojeto;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -9,6 +10,9 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ConfigActivity extends AppCompatActivity {
 
@@ -19,6 +23,9 @@ public class ConfigActivity extends AppCompatActivity {
     EditText editChave1, editChave2, editChave3;
     ImageView botaoVoltar;
 
+    // Ícones
+    ImageView setaChave1, setaChave2, setaChave3;
+
     boolean expanded1 = false;
     boolean expanded2 = false;
     boolean expanded3 = false;
@@ -28,7 +35,7 @@ public class ConfigActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Botão voltar personalizado
+        // Botão voltar
         botaoVoltar = findViewById(R.id.botaoVoltar);
         botaoVoltar.setOnClickListener(v -> finish());
 
@@ -48,34 +55,53 @@ public class ConfigActivity extends AppCompatActivity {
         editChave2 = findViewById(R.id.editChave2);
         editChave3 = findViewById(R.id.editChave3);
 
-        // Listener para o Switch
+        setaChave1 = findViewById(R.id.setaChave1);
+        setaChave2 = findViewById(R.id.setaChave2);
+        setaChave3 = findViewById(R.id.setaChave3);
+
+        // Switch
         switchSeguranca.setOnCheckedChangeListener((buttonView, isChecked) -> {
             int visibility = isChecked ? View.VISIBLE : View.GONE;
             tituloConfig.setVisibility(visibility);
             chave1Layout.setVisibility(visibility);
             chave2Layout.setVisibility(visibility);
             chave3Layout.setVisibility(visibility);
+
+            if (isChecked) {
+                switchSeguranca.getThumbDrawable().setTint(ContextCompat.getColor(this, android.R.color.holo_green_dark));
+                switchSeguranca.getTrackDrawable().setTint(ContextCompat.getColor(this, android.R.color.holo_green_light));
+            } else {
+                switchSeguranca.getThumbDrawable().setTint(ContextCompat.getColor(this, android.R.color.holo_red_dark));
+                switchSeguranca.getTrackDrawable().setTint(ContextCompat.getColor(this, android.R.color.holo_red_light));
+            }
         });
 
-        // Listeners para expandir/retrair as chaves
-        chave1Titulo.setOnClickListener(v -> {
+
+
+        // Clique Chave 1
+        chave1Layout.setOnClickListener(v -> {
             expanded1 = !expanded1;
             editChave1.setVisibility(expanded1 ? View.VISIBLE : View.GONE);
+            setaChave1.animate().rotation(expanded1 ? 90 : 0).setDuration(200).start();
         });
 
-        chave2Titulo.setOnClickListener(v -> {
+        // Clique Chave 2
+        chave2Layout.setOnClickListener(v -> {
             expanded2 = !expanded2;
             editChave2.setVisibility(expanded2 ? View.VISIBLE : View.GONE);
+            setaChave2.animate().rotation(expanded2 ? 90 : 0).setDuration(200).start();
         });
 
-        chave3Titulo.setOnClickListener(v -> {
+        // Clique Chave 3
+        chave3Layout.setOnClickListener(v -> {
             expanded3 = !expanded3;
             editChave3.setVisibility(expanded3 ? View.VISIBLE : View.GONE);
+            setaChave3.animate().rotation(expanded3 ? 90 : 0).setDuration(200).start();
         });
 
-        //O menu inferior funcionando
+        // Menu inferior
 
-        //BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+       // BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         //bottomNav.setOnItemSelectedListener(item -> {
             //switch (item.getItemId()) {
                 //case R.id.nav_home:
@@ -85,12 +111,9 @@ public class ConfigActivity extends AppCompatActivity {
                     //startActivity(new Intent(this, InfoActivity.class));
                     //return true;
                 //case R.id.nav_config:
-                    //startActivity(new Intent(this, ConfigActivity.class));
                     //return true;
             //}
             //return false;
         //});
-
-
     }
 }
