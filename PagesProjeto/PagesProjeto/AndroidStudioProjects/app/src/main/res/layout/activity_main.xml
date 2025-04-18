@@ -135,8 +135,8 @@
                     android:hint="Ex: Eu não quero morrer"
                     android:inputType="text"
                     android:padding="5dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#72FFFFFF"
+                    android:textColor="#5e5e5e"
+                    android:textColorHint="#5e5e5e"
                     android:visibility="gone" />
 
                 <View
@@ -202,8 +202,8 @@
                     android:hint="Ex: eu tenho familia"
                     android:inputType="text"
                     android:padding="5dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#72FFFFFF"
+                    android:textColor="#5e5e5e"
+                    android:textColorHint="#5e5e5e"
                     android:visibility="gone" />
 
                 <View
@@ -269,8 +269,8 @@
                     android:hint="Ex: Cuidado com a banana"
                     android:inputType="text"
                     android:padding="5dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#72FFFFFF"
+                    android:textColor="#5e5e5e"
+                    android:textColorHint="#5e5e5e"
                     android:visibility="gone" />
 
                 <View
