@@ -94,8 +94,8 @@
                     android:id="@+id/chave1Header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:paddingEnd="10dp">
 
                     <TextView
@@ -112,9 +112,9 @@
                         android:id="@+id/setaChave1"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/arrow_forward"
+                        android:contentDescription="Seta expandir"
                         android:rotation="0"
-                        android:contentDescription="Seta expandir" />
+                        android:src="@drawable/arrow_forward" />
                 </LinearLayout>
 
                 <TextView
@@ -122,29 +122,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Chave primária."
+                    android:layout_marginBottom="4dp"
+                    android:text="Chave adicional."
                     android:textColor="#BBBBBB"
                     android:textSize="13sp" />
 
-                <EditText
-                    android:id="@+id/editChave1"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEditChave1"
                     android:layout_width="match_parent"
-                    android:layout_height="48sp"
-                    android:background="@drawable/edittext_background"
-                    android:hint="Ex: Eu não quero morrer"
-                    android:inputType="text"
-                    android:padding="5dp"
-                    android:textColor="#5e5e5e"
-                    android:textColorHint="#5e5e5e"
-                    android:visibility="gone" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Ex: Não compartilhe sua senha"
+                    android:visibility="gone"
+                    app:hintTextColor="@color/hint_suave">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editChave1"
+                        android:layout_width="match_parent"
+                        android:layout_height="48sp"
+                        android:background="@drawable/edittext_background"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="#5e5e5e"
+                        android:textColorHint="#4e4e4e" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#5c5c5c"
-                    android:layout_marginTop="2sp"/>
+                    android:layout_marginTop="2sp"
+                    android:background="#5c5c5c" />
             </LinearLayout>
+
+
 
 
             <!-- Chave 2 -->
@@ -161,8 +171,8 @@
                     android:id="@+id/chave2Header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:paddingEnd="10dp">
 
                     <TextView
@@ -179,9 +189,9 @@
                         android:id="@+id/setaChave2"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/arrow_forward"
+                        android:contentDescription="Seta expandir"
                         android:rotation="0"
-                        android:contentDescription="Seta expandir" />
+                        android:src="@drawable/arrow_forward" />
                 </LinearLayout>
 
                 <TextView
@@ -189,29 +199,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Chave secundária."
+                    android:layout_marginBottom="4dp"
+                    android:text="Chave adicional."
                     android:textColor="#BBBBBB"
                     android:textSize="13sp" />
 
-                <EditText
-                    android:id="@+id/editChave2"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEditChave2"
                     android:layout_width="match_parent"
-                    android:layout_height="48sp"
-                    android:background="@drawable/edittext_background"
-                    android:hint="Ex: eu tenho familia"
-                    android:inputType="text"
-                    android:padding="5dp"
-                    android:textColor="#5e5e5e"
-                    android:textColorHint="#5e5e5e"
-                    android:visibility="gone" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="Ex: Jamais confie no pombo"
+                    android:visibility="gone"
+                    app:hintTextColor="@color/hint_suave">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editChave2"
+                        android:layout_width="match_parent"
+                        android:layout_height="48sp"
+                        android:background="@drawable/edittext_background"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="#5e5e5e"
+                        android:textColorHint="#4e4e4e" />
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#5c5c5c"
-                    android:layout_marginTop="2sp"/>
+                    android:layout_marginTop="2sp"
+                    android:background="#5c5c5c" />
             </LinearLayout>
+
+
 
 
             <!-- Chave 3 -->
@@ -228,8 +248,8 @@
                     android:id="@+id/chave3Header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:orientation="horizontal"
                     android:paddingEnd="10dp">
 
                     <TextView
@@ -246,9 +266,9 @@
                         android:id="@+id/setaChave3"
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/arrow_forward"
+                        android:contentDescription="Seta expandir"
                         android:rotation="0"
-                        android:contentDescription="Seta expandir" />
+                        android:src="@drawable/arrow_forward" />
                 </LinearLayout>
 
                 <TextView
@@ -256,29 +276,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="4dp"
                     android:text="Chave adicional."
                     android:textColor="#BBBBBB"
                     android:textSize="13sp" />
 
-                <EditText
-                    android:id="@+id/editChave3"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutEditChave3"
                     android:layout_width="match_parent"
-                    android:layout_height="48sp"
-                    android:background="@drawable/edittext_background"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:hint="Ex: Cuidado com a banana"
-                    android:inputType="text"
-                    android:padding="5dp"
-                    android:textColor="#5e5e5e"
-                    android:textColorHint="#5e5e5e"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    app:hintTextColor="@color/hint_suave">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editChave3"
+                        android:layout_width="match_parent"
+                        android:layout_height="48sp"
+                        android:background="@drawable/edittext_background"
+                        android:inputType="text"
+                        android:padding="5dp"
+                        android:textColor="#5e5e5e"
+                        android:textColorHint="#4e4e4e" />
+                </com.google.android.material.textfield.TextInputLayout>
+
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="#5c5c5c"
-                    android:layout_marginTop="2sp"/>
+                    android:layout_marginTop="2sp"
+                    android:background="#5c5c5c" />
             </LinearLayout>
+
 
         </LinearLayout>
     </ScrollView>

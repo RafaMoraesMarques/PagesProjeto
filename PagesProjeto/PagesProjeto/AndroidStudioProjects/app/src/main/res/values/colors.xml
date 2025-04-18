@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="hint_suave">#4e4e4e</color>
+    <style name="MeuEstiloInputLayout" parent="Widget.Material3.TextInputLayout.FilledBox">
+        <item name="hintTextColor">@color/hint_suave</item>
+    </style>
+
 </resources>
