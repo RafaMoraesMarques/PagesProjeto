@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class ConfigActivity extends AppCompatActivity {
 
     Switch switchSeguranca;
@@ -119,5 +121,22 @@ public class ConfigActivity extends AppCompatActivity {
             editChave3.setVisibility(expanded3 ? View.VISIBLE : View.GONE);
             setaChave3.animate().rotation(expanded3 ? 90 : 0).setDuration(200).start();
         });
+
+//        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+//        bottomNav.setOnItemSelectedListener(item -> {
+//            switch (item.getItemId()) {
+//                case R.id.nav_home:
+//                    finish();
+//                    return true;
+//                case R.id.nav_config:
+//                    // Intent intentPerfil = new Intent(this, InfoPage.class);
+//                    // startActivity(intentPerfil);
+//                    return true;
+//                case R.id.nav_info:
+//                    // Intent intentHistorico = new Intent(this, HistoricoActivity.class);
+//                    // startActivity(intentHistorico);
+//                    return true;
+//            }
+//            return false;
     }
 }
