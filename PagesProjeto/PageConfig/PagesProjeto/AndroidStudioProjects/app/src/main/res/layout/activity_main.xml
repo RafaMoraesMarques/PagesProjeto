@@ -120,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp"
-                    android:text="Chave adicional."
+                    android:text="Chave primária."
                     android:textColor="#BBBBBB"
                     android:textSize="13sp" />
 
@@ -188,7 +188,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:layout_marginBottom="4dp"
-                    android:text="Chave adicional."
+                    android:text="Chave secundária."
                     android:textColor="#BBBBBB"
                     android:textSize="13sp" />
 
