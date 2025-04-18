@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+
 public class ConfigActivity extends AppCompatActivity {
 
     Switch switchSeguranca;
