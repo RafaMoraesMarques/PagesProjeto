@@ -11,8 +11,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.google.android.material.textfield.TextInputLayout;
-
 public class ConfigActivity extends AppCompatActivity {
 
     Switch switchSeguranca;
@@ -20,7 +18,6 @@ public class ConfigActivity extends AppCompatActivity {
     LinearLayout chave1Layout, chave2Layout, chave3Layout;
     TextView chave1Titulo, chave2Titulo, chave3Titulo;
     EditText editChave1, editChave2, editChave3;
-    TextInputLayout layoutEditChave1, layoutEditChave2, layoutEditChave3;
     ImageView botaoVoltar;
 
     // Ícones
@@ -55,10 +52,6 @@ public class ConfigActivity extends AppCompatActivity {
         editChave2 = findViewById(R.id.editChave2);
         editChave3 = findViewById(R.id.editChave3);
 
-        layoutEditChave1 = findViewById(R.id.layoutEditChave1);
-        layoutEditChave2 = findViewById(R.id.layoutEditChave2);
-        layoutEditChave3 = findViewById(R.id.layoutEditChave3);
-
         setaChave1 = findViewById(R.id.setaChave1);
         setaChave2 = findViewById(R.id.setaChave2);
         setaChave3 = findViewById(R.id.setaChave3);
@@ -91,14 +84,14 @@ public class ConfigActivity extends AppCompatActivity {
                 switchSeguranca.getThumbDrawable().setTint(ContextCompat.getColor(this, android.R.color.holo_red_dark));
                 switchSeguranca.getTrackDrawable().setTint(ContextCompat.getColor(this, android.R.color.holo_red_light));
 
-                // Fecha campos abertos
+                // Fecha campos se estavam abertos
                 expanded1 = false;
                 expanded2 = false;
                 expanded3 = false;
 
-                layoutEditChave1.setVisibility(View.GONE);
-                layoutEditChave2.setVisibility(View.GONE);
-                layoutEditChave3.setVisibility(View.GONE);
+                editChave1.setVisibility(View.GONE);
+                editChave2.setVisibility(View.GONE);
+                editChave3.setVisibility(View.GONE);
 
                 setaChave1.setRotation(0);
                 setaChave2.setRotation(0);
@@ -109,21 +102,21 @@ public class ConfigActivity extends AppCompatActivity {
         // Clique Chave 1
         chave1Layout.setOnClickListener(v -> {
             expanded1 = !expanded1;
-            layoutEditChave1.setVisibility(expanded1 ? View.VISIBLE : View.GONE);
+            editChave1.setVisibility(expanded1 ? View.VISIBLE : View.GONE);
             setaChave1.animate().rotation(expanded1 ? 90 : 0).setDuration(200).start();
         });
 
         // Clique Chave 2
         chave2Layout.setOnClickListener(v -> {
             expanded2 = !expanded2;
-            layoutEditChave2.setVisibility(expanded2 ? View.VISIBLE : View.GONE);
+            editChave2.setVisibility(expanded2 ? View.VISIBLE : View.GONE);
             setaChave2.animate().rotation(expanded2 ? 90 : 0).setDuration(200).start();
         });
 
         // Clique Chave 3
         chave3Layout.setOnClickListener(v -> {
             expanded3 = !expanded3;
-            layoutEditChave3.setVisibility(expanded3 ? View.VISIBLE : View.GONE);
+            editChave3.setVisibility(expanded3 ? View.VISIBLE : View.GONE);
             setaChave3.animate().rotation(expanded3 ? 90 : 0).setDuration(200).start();
         });
     }
