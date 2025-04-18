@@ -1,7 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Base.Theme.PagesProjeto" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:textColorHint">#80FFFFFF</item> <!-- hint personalizado -->
-    </style>
-
-    <style name="Theme.PagesProjeto" parent="Base.Theme.PagesProjeto" />
-</resources>
