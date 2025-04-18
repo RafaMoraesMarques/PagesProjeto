@@ -132,11 +132,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="48sp"
                     android:background="@drawable/edittext_background"
-                    android:hint="Digite sua chave"
+                    android:hint="Ex: Eu não quero morrer"
                     android:inputType="text"
                     android:padding="5dp"
                     android:textColor="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHint="#72FFFFFF"
                     android:visibility="gone" />
 
                 <View
@@ -199,11 +199,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="48sp"
                     android:background="@drawable/edittext_background"
-                    android:hint="Digite sua chave"
+                    android:hint="Ex: eu tenho familia"
                     android:inputType="text"
                     android:padding="5dp"
                     android:textColor="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHint="#72FFFFFF"
                     android:visibility="gone" />
 
                 <View
@@ -266,11 +266,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="48sp"
                     android:background="@drawable/edittext_background"
-                    android:hint="Digite sua chave"
+                    android:hint="Ex: Cuidado com a banana"
                     android:inputType="text"
                     android:padding="5dp"
                     android:textColor="#FFFFFF"
-                    android:textColorHint="#FFFFFF"
+                    android:textColorHint="#72FFFFFF"
                     android:visibility="gone" />
 
                 <View

@@ -62,11 +62,24 @@ public class ConfigActivity extends AppCompatActivity {
 
         // Switch
         switchSeguranca.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            int visibility = isChecked ? View.VISIBLE : View.GONE;
-            tituloConfig.setVisibility(visibility);
-            chave1Layout.setVisibility(visibility);
-            chave2Layout.setVisibility(visibility);
-            chave3Layout.setVisibility(visibility);
+            boolean enabled = isChecked;
+            float alpha = isChecked ? 1.0f : 0.5f;
+
+            tituloConfig.setEnabled(enabled);
+            tituloConfig.setAlpha(alpha);
+
+            chave1Layout.setEnabled(enabled);
+            chave1Layout.setAlpha(alpha);
+
+            chave2Layout.setEnabled(enabled);
+            chave2Layout.setAlpha(alpha);
+
+            chave3Layout.setEnabled(enabled);
+            chave3Layout.setAlpha(alpha);
+
+            editChave1.setEnabled(enabled);
+            editChave2.setEnabled(enabled);
+            editChave3.setEnabled(enabled);
 
             if (isChecked) {
                 switchSeguranca.getThumbDrawable().setTint(ContextCompat.getColor(this, android.R.color.holo_green_dark));
@@ -76,6 +89,7 @@ public class ConfigActivity extends AppCompatActivity {
                 switchSeguranca.getTrackDrawable().setTint(ContextCompat.getColor(this, android.R.color.holo_red_light));
             }
         });
+
 
 
 
