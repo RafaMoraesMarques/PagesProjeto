@@ -83,18 +83,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="16dp"
                 android:visibility="gone">
 
                 <!-- Texto explicativo -->
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
                     android:text="Insira o primeiro nome"
                     android:textColor="#BBBBBB"
                     android:textSize="14sp"
-                    android:layout_marginBottom="4dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editNome1"
@@ -112,11 +111,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
                     android:text="Insira o sobrenome"
                     android:textColor="#BBBBBB"
                     android:textSize="14sp"
-                    android:layout_marginBottom="4dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/editNome2"
@@ -172,7 +171,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="16dp"
                 android:visibility="gone">
 
                 <!-- Texto explicativo -->
@@ -235,12 +233,12 @@
                     android:contentDescription="Seta"/>
             </LinearLayout>
 
+            <!-- Linha separadora após E-mail -->
             <LinearLayout
                 android:id="@+id/camposEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingHorizontal="16dp"
                 android:visibility="gone">
 
                 <!-- Texto explicativo -->
@@ -266,7 +264,6 @@
                     android:textColorHint="#4e4e4e" />
             </LinearLayout>
 
-            <!-- Linha separadora após E-mail -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
