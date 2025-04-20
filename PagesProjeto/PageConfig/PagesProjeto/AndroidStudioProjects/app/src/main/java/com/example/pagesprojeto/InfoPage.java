@@ -29,10 +29,10 @@ public class InfoPage extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // botaoPerfil.setOnClickListener(v -> {
-        //     Intent intent = new Intent(InfoPage.this, PerfilActivity.class);
-        //     startActivity(intent);
-        // });
+         botaoPerfil.setOnClickListener(v -> {
+             Intent intent = new Intent(InfoPage.this, ProfilePage.class);
+             startActivity(intent);
+         });
 
         // botaoHistorico.setOnClickListener(v -> {
         //     Intent intent = new Intent(InfoPage.this, HistoricoActivity.class);

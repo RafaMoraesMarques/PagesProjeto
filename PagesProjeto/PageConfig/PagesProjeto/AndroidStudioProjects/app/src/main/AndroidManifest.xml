@@ -26,6 +26,10 @@
             android:name=".ConfigActivity"
             android:exported="true" />
 
+        <activity
+            android:name=".ProfilePage"
+            android:exported="true" />
+
     </application>
 
 </manifest>

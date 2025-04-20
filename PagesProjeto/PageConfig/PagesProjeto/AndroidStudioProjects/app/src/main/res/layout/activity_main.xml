@@ -132,7 +132,7 @@
                     android:paddingRight="10dp"
                     android:textColor="#5e5e5e"
                     android:textColorHint="#4e4e4e"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
 
                 <View
