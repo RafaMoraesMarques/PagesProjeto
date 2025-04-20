@@ -45,7 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:paddingBottom="25dp">
+        android:paddingBottom="25dp"
+        android:paddingHorizontal="10sp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +58,7 @@
                 android:id="@+id/layoutNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:paddingVertical="15dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
@@ -129,12 +130,10 @@
                     android:textColorHint="#4e4e4e" />
             </LinearLayout>
 
-            <!-- Linha separadora após Nome -->
+            <!-- Linha separadora -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:layout_height="wrap_content">
 
                 <View
                     android:layout_width="match_parent"
@@ -148,7 +147,7 @@
                 android:id="@+id/layoutTelefone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:paddingVertical="15dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
@@ -202,9 +201,7 @@
             <!-- Linha separadora -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:layout_height="wrap_content">
 
                 <View
                     android:layout_width="match_parent"
@@ -218,7 +215,7 @@
                 android:id="@+id/layoutEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
+                android:paddingVertical="15dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
@@ -272,9 +269,7 @@
             <!-- Linha separadora após E-mail -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp">
+                android:layout_height="wrap_content">
 
                 <View
                     android:layout_width="match_parent"
