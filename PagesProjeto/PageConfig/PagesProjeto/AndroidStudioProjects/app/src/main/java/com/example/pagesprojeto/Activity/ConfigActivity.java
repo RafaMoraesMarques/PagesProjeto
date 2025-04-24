@@ -2,16 +2,21 @@ package com.example.pagesprojeto.Activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.pagesprojeto.R;
+import com.example.pagesprojeto.models.Motorista;
+
+import java.util.List;
 
 public class ConfigActivity extends AppCompatActivity {
 
@@ -122,6 +127,47 @@ public class ConfigActivity extends AppCompatActivity {
             setaChave3.animate().rotation(expanded3 ? 90 : 0).setDuration(200).start();
         });
 
+        Button botaoAtualizarConfig = findViewById(R.id.botaoAtualizar);
+        botaoAtualizarConfig.setOnClickListener(v -> {
+            if (!switchSeguranca.isChecked()) {
+                Toast.makeText(this, "Ative o modo de segurança para atualizar.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String frase1 = editChave1.getText().toString().trim();
+            String frase2 = editChave2.getText().toString().trim();
+            String frase3 = editChave3.getText().toString().trim();
+
+            if (frase1.isEmpty() || frase2.isEmpty() || frase3.isEmpty()) {
+                Toast.makeText(this, "Preencha todas as chaves de segurança.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            new Thread(() -> {
+                Motorista debugMotorista = new Motorista(0, "", "", "", "", "", "", "", "", "", "", "", "");
+                List<Motorista> motoristas = debugMotorista.listarMotoristas();
+
+                if (motoristas != null && !motoristas.isEmpty()) {
+                    Motorista motorista = motoristas.get(0);
+
+                    motorista.setFrase1(frase1);
+                    motorista.setFrase2(frase2);
+                    motorista.setFrase3(frase3);
+
+                    String resposta = motorista.atualizar(motorista.getId());
+
+                    runOnUiThread(() -> {
+                        Toast.makeText(ConfigActivity.this, resposta, Toast.LENGTH_LONG).show();
+                    });
+                } else {
+                    runOnUiThread(() -> {
+                        Toast.makeText(ConfigActivity.this, "Motorista não encontrado.", Toast.LENGTH_LONG).show();
+                    });
+                }
+            }).start();
+        });
+
+
 //        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
 //        bottomNav.setOnItemSelectedListener(item -> {
 //            switch (item.getItemId()) {
@@ -138,5 +184,28 @@ public class ConfigActivity extends AppCompatActivity {
 //                    return true;
 //            }
 //            return false;
+    }
+
+    private void carregarDadosUsuario() {
+        new Thread(() -> {
+            Motorista debugMotorista = new Motorista(0, "", "", "", "", "", "", "", "", "", "", "", "");
+            List<Motorista> motoristas = debugMotorista.listarMotoristas();
+
+            if (motoristas != null && !motoristas.isEmpty()) {
+                Motorista motorista = motoristas.get(0);
+
+                runOnUiThread(() -> {
+                    editChave1.setHint(motorista.getFrase1()); // Preenche a chave 1
+                    editChave2.setHint(motorista.getFrase2()); // Preenche a chave 2
+                    editChave3.setHint(motorista.getFrase3()); // Preenche a chave 3
+
+                    Toast.makeText(ConfigActivity.this, "Dados carregados!", Toast.LENGTH_SHORT).show();
+                });
+            } else {
+                runOnUiThread(() -> {
+                    Toast.makeText(ConfigActivity.this, "Nenhum motorista encontrado.", Toast.LENGTH_LONG).show();
+                });
+            }
+        }).start();
     }
 }

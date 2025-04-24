@@ -278,6 +278,17 @@
 
         </LinearLayout>
     </ScrollView>
+    <Button
+        android:id="@+id/botaoAtualizar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Atualizar"
+        android:textColor="#FFFFFF"
+        android:background="#3F51B5"
+        android:layout_margin="16dp"
+        android:padding="12dp"
+        />
+
 
     <!-- Menu Inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

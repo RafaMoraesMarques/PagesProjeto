@@ -151,9 +151,6 @@ public class Motorista extends Usuario {
 
 
 
-
-
-
     public void atualizarMotorista(int id, Motorista motorista) {
         motorista.atualizar(id);
     }
@@ -205,6 +202,8 @@ public class Motorista extends Usuario {
         return json;
     }
 
-
+    public Motorista() {
+        this(0, "", "", "", "", "", "", "", "", "", "", "", "");
+    }
 
 }

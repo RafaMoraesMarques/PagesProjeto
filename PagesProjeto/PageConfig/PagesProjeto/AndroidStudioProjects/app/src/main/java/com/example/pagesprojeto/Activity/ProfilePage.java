@@ -2,26 +2,24 @@ package com.example.pagesprojeto.Activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pagesprojeto.R;
+import com.example.pagesprojeto.models.Motorista;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 
-import java.io.IOException;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class ProfilePage extends AppCompatActivity {
+
+    Button botaoAtualizar;
+    String nomeOriginal, sobrenomeOriginal, telefoneOriginal, emailOriginal;
 
     ImageView botaoVoltar, setaNome, setaTelefone, setaEmail;
     LinearLayout layoutNome, layoutTelefone, layoutEmail;
@@ -37,7 +35,7 @@ public class ProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
 
-        carregarDadosUsuario(1);
+        carregarDadosUsuario();
 
         // Botão voltar
         botaoVoltar = findViewById(R.id.botaoVoltar);
@@ -60,6 +58,11 @@ public class ProfilePage extends AppCompatActivity {
         setaNome = findViewById(R.id.setaNome);
         setaTelefone = findViewById(R.id.setaTelefone);
         setaEmail = findViewById(R.id.setaEmail);
+
+        //botão para atualizar dados
+        botaoAtualizar = findViewById(R.id.botaoAtualizar);
+        botaoAtualizar.setOnClickListener(v -> atualizarDados());
+
 
         // Clique Nome
         layoutNome.setOnClickListener(v -> {
@@ -100,41 +103,81 @@ public class ProfilePage extends AppCompatActivity {
         // });
     }
 
-    private void carregarDadosUsuario(int userId) {
-        OkHttpClient client = new OkHttpClient();
+    private void carregarDadosUsuario() {
+        new Thread(() -> {
+            Motorista debugMotorista = new Motorista(0, "", "", "", "", "", "", "", "", "", "", "", "");
+            List<Motorista> motoristas = debugMotorista.listarMotoristas();
 
-        Request request = new Request.Builder()
-                .url("http://10.0.2.2:3000/usuario/" + userId) // URL do servidor (simulando localhost)
-                .build();
+            if (motoristas != null && !motoristas.isEmpty()) {
+                Motorista motorista = motoristas.get(0);
 
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace(); // Aqui você pode fazer um log ou mostrar uma mensagem de erro
+                runOnUiThread(() -> {
+                    editNome1.setHint(motorista.getNome());           // Preenche o nome
+                    editNome2.setHint(motorista.getSobrenome());      // Preenche o sobrenome
+                    editTelefone.setHint(motorista.getTelefone());    // Preenche o telefone
+                    editEmail.setHint(motorista.getEmail());          // Preenche o email
+
+                    nomeOriginal = motorista.getNome();
+                    sobrenomeOriginal = motorista.getSobrenome();
+                    telefoneOriginal = motorista.getTelefone();
+                    emailOriginal = motorista.getEmail();
+
+
+                    Toast.makeText(ProfilePage.this, "Dados carregados!", Toast.LENGTH_SHORT).show();
+                });
+            } else {
+                runOnUiThread(() -> {
+                    Toast.makeText(ProfilePage.this, "Nenhum motorista encontrado.", Toast.LENGTH_LONG).show();
+                });
             }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                if (response.code() >= 200 && response.code() < 300) { // Verifica se o código HTTP é 2xx
-                    try {
-                        final String responseData = response.body().string();
-                        JSONObject json = new JSONObject(responseData);
-                        final String nome = json.getString("nome");
-                        final String telefone = json.getString("telefone");
-                        final String email = json.getString("email");
-
-                        // Atualiza a UI na thread principal
-                        runOnUiThread(() -> {
-                            editNome1.setText(nome);  // Atualiza o campo de nome
-                            editTelefone.setText(telefone);  // Atualiza o campo de telefone
-                            editEmail.setText(email);  // Atualiza o campo de e-mail
-                        });
-
-                    } catch (JSONException e) {
-                        e.printStackTrace(); // Caso haja erro ao processar o JSON
-                    }
-                }
-            }
-        });
+        }).start();
     }
+
+    private void atualizarDados() {
+        String nome = editNome1.getText().toString().trim();
+        String sobrenome = editNome2.getText().toString().trim();
+        String telefone = editTelefone.getText().toString().trim();
+        String email = editEmail.getText().toString().trim();
+
+        // Verifica campos obrigatórios
+        if (nome.isEmpty() || sobrenome.isEmpty() || telefone.isEmpty() || email.isEmpty()) {
+            Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Verifica se houve alteração
+        if (nome.equals(nomeOriginal) && sobrenome.equals(sobrenomeOriginal)
+                && telefone.equals(telefoneOriginal) && email.equals(emailOriginal)) {
+            Toast.makeText(this, "Nenhuma alteração detectada.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        new Thread(() -> {
+            Motorista motorista = new Motorista();
+            motorista.setId(1); // Troque pelo ID real do motorista logado
+            motorista.setNome(nome);
+            motorista.setSobrenome(sobrenome);
+            motorista.setTelefone(telefone);
+            motorista.setEmail(email);
+
+            String resposta = motorista.atualizar(motorista.getId());
+
+            runOnUiThread(() -> {
+                if (resposta.contains("sucesso") || resposta.toLowerCase().contains("ok")) {
+                    Toast.makeText(ProfilePage.this, "Dados atualizados com sucesso!", Toast.LENGTH_SHORT).show();
+
+                    // Atualiza os valores originais
+                    nomeOriginal = nome;
+                    sobrenomeOriginal = sobrenome;
+                    telefoneOriginal = telefone;
+                    emailOriginal = email;
+                } else {
+                    Toast.makeText(ProfilePage.this, "Erro: " + resposta, Toast.LENGTH_LONG).show();
+                }
+            });
+        }).start();
+    }
+
+
+
 }

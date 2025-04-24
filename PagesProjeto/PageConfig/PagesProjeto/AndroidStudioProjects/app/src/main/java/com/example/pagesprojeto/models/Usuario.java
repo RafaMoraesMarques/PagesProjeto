@@ -1,7 +1,10 @@
 package com.example.pagesprojeto.models;
 
 
+
 import com.example.pagesprojeto.utils.Criptografia;
+
+
 
 public class Usuario {
     private int id;
