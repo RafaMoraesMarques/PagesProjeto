@@ -279,17 +279,17 @@
                     android:background="#5c5c5c" />
             </LinearLayout>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/botaoAtualizar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Atualizar"
-                android:layout_gravity="bottom"
-                android:textColor="#FFFFFF"
-                android:background="#6750A3"
-                android:layout_marginTop="200dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/botao_background"
                 android:padding="12dp"
-                />
+                android:text="Atualizar"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp" />
 
         </LinearLayout>
     </ScrollView>
