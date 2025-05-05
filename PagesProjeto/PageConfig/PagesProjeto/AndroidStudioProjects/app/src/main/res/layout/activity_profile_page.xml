@@ -121,6 +121,7 @@
                     android:id="@+id/editNome2"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
+                    android:layout_marginBottom="8dp"
                     android:background="@drawable/edittext_background"
                     android:hint="Sobrenome"
                     android:inputType="text"
@@ -273,10 +274,26 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="2sp"
                     android:background="#5c5c5c" />
+
             </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/botaoAtualizar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Atualizar"
+                android:textSize="15sp"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/botao_background"
+                android:layout_margin="16dp"
+                android:padding="12dp" />
 
         </LinearLayout>
     </ScrollView>
+
+
+
 
     <!-- Menu Inferior -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
