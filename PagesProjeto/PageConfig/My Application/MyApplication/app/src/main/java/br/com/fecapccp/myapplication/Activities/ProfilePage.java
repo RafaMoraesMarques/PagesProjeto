@@ -34,7 +34,10 @@ public class ProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
 
-        carregarDadosUsuario();
+        new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> {
+            carregarDadosUsuario();
+        }, 500); // Aguarda 0.5 segundos antes de recarregar os dados
+
 
         // Botão voltar
         botaoVoltar = findViewById(R.id.botaoVoltar);

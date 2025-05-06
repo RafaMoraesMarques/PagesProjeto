@@ -177,11 +177,11 @@ public class ConfigActivity extends AppCompatActivity {
 
         private void carregarDadosUsuario() {
         new Thread(() -> {
-            Motorista debugMotorista = new Motorista(1, "", "", "", "", "", "", "", "", "", "", "", "");
+            Motorista debugMotorista = new Motorista(0, "", "", "", "", "", "", "", "", "", "", "", "");
             List<Motorista> motoristas = debugMotorista.listarMotoristas();
 
             if (motoristas != null && !motoristas.isEmpty()) {
-                Motorista motorista = motoristas.get(1);
+                Motorista motorista = motoristas.get(0);
 
                 runOnUiThread(() -> {
                     editChave1.setHint(motorista.getFrase1()); // Preenche a chave 1
