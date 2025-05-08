@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
@@ -86,23 +87,43 @@ public class ProfilePage extends AppCompatActivity {
             setaEmail.animate().rotation(expandedEmail ? 90 : 0).setDuration(200).start();
         });
 
-        //botão sair
+        // Clique botão sair
 
         Button botaoSair = findViewById(R.id.botaoSair);
-        botaoSair.setOnClickListener(v -> {
-            new androidx.appcompat.app.AlertDialog.Builder(ProfilePage.this)
-                    .setTitle("Sair da Conta")
-                    .setMessage("Deseja mesmo sair da conta?")
-                    .setNegativeButton("Não", (dialog, which) -> dialog.dismiss())
-                    .setPositiveButton("Sim", (dialog, which) -> {
-                        // Intent intent = new Intent(ProfilePage.this, LoginActivity.class);
-                        // startActivity(intent);
-                        // finish();
-                    })
-                    .show();
-        });
+
+        botaoSair.setOnClickListener(v -> mostrarDialogoLogout());
 
     }
+
+    // Botão sair
+    private void mostrarDialogoLogout() {
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_logout, null);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.CustomAlertDialog); // Aplica o estilo
+        builder.setView(dialogView);
+
+        AlertDialog dialog = builder.create();
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent); // Fundo do Dialog transparente
+            dialog.getWindow().setDimAmount(0.6f); // Escurece o fundo ao redor
+        }
+
+        Button botaoCancelar = dialogView.findViewById(R.id.botaoNao);
+        Button botaoConfirmar = dialogView.findViewById(R.id.botaoSim);
+
+        botaoCancelar.setOnClickListener(v -> dialog.dismiss());
+
+        botaoConfirmar.setOnClickListener(v -> {
+            dialog.dismiss();
+            // Intent intent = new Intent(ProfilePage.this, LoginActivity.class);
+            // startActivity(intent);
+            // finish();
+        });
+
+        dialog.show();
+    }
+
 
     private void carregarDadosUsuario() {
         new Thread(() -> {
