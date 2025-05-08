@@ -85,6 +85,23 @@ public class ProfilePage extends AppCompatActivity {
             camposEmail.setVisibility(expandedEmail ? View.VISIBLE : View.GONE);
             setaEmail.animate().rotation(expandedEmail ? 90 : 0).setDuration(200).start();
         });
+
+        //botão sair
+
+        Button botaoSair = findViewById(R.id.botaoSair);
+        botaoSair.setOnClickListener(v -> {
+            new androidx.appcompat.app.AlertDialog.Builder(ProfilePage.this)
+                    .setTitle("Sair da Conta")
+                    .setMessage("Deseja mesmo sair da conta?")
+                    .setNegativeButton("Não", (dialog, which) -> dialog.dismiss())
+                    .setPositiveButton("Sim", (dialog, which) -> {
+                        // Intent intent = new Intent(ProfilePage.this, LoginActivity.class);
+                        // startActivity(intent);
+                        // finish();
+                    })
+                    .show();
+        });
+
     }
 
     private void carregarDadosUsuario() {
