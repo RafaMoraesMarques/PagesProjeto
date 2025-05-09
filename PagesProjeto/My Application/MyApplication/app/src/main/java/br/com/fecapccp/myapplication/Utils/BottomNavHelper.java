@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import br.com.fecapccp.myapplication.Activities.ConfigActivity;
 //import br.com.fecapccp.myapplication.Activities.HistPage;
 //import br.com.fecapccp.myapplication.Activities.Home;
+import br.com.fecapccp.myapplication.Activities.ProfilePage;
 import br.com.fecapccp.myapplication.R;
 
 public class BottomNavHelper {
@@ -31,7 +32,7 @@ public class BottomNavHelper {
                 activity.overridePendingTransition(0, 0);
                 return true;
             } else if (itemId == R.id.nav_config && selectedItemId != R.id.nav_config) {
-                activity.startActivity(new Intent(activity, ConfigActivity.class));
+                activity.startActivity(new Intent(activity, ProfilePage.class));
                 activity.overridePendingTransition(0, 0);
                 return true;
             }
