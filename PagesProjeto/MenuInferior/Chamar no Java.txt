@@ -1,0 +1,2 @@
+// Menu inferior
+        BottomNavHelper.setupBottomNavigation(this, R.id.nav_config);
